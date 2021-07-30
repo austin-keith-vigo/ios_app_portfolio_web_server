@@ -1,5 +1,5 @@
 // TODO: Create an index.js for all models
-import Experience from "./Models/Experience";
+const Experience = require("./Models/Experience")
 
 // Creates a connection to the databse
 function get_connection() {
