@@ -35,9 +35,9 @@ function experiences_get_all(connection = null) {
                 let newExperience = new Experience(experience.id, experience.title, experience.description)
                 experiences.push(newExperience)
             });
-            let results = { error: null, experiences: experiences}
-            console.log(results)
-            return results
+            console.log({ error: null, experiences: experiences})
+            
+            return { error: null, experiences: experiences}
         });
     } catch (error) {
         return { error: err, experiences: [] }
