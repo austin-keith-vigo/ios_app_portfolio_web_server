@@ -14,7 +14,7 @@ function get_connection() {
 }
 
 // Get all experiences
-function experiences_get_all(connection = null) {
+function experiences_get_all(connection = null, completionHandler) {
 
     // Establich connection to database
     let con = connection
@@ -27,19 +27,19 @@ function experiences_get_all(connection = null) {
         con.query("SELECT * FROM experience", function (err, results, fields) {
 
             if (err) {
-                return { error: err, experiences: []}
-            };
-
-            let experiences = []
-            results.forEach(experience => {
-                let newExperience = new Experience(experience.id, experience.title, experience.description)
-                experiences.push(newExperience)
-            });
-
-            return { error: null, experiences: experiences}
+                completionHandler(err, [])
+            } else {
+                let experiences = []
+                results.forEach(experience => {
+                    let newExperience = new Experience(experience.id, experience.title, experience.description)
+                    experiences.push(newExperience)
+                });
+                completionHandler(null, experiences)
+            }
+            
         });
     } catch (error) {
-        return { error: err, experiences: [] }
+        completionHandler(err, [])
     }
 }
 

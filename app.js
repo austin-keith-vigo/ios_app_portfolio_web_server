@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
 // TODO: Create an endpoint to get all experience objects
 app.get('/experience/all', (req, res) => {
     console.log('DEBUG endpoint /experience/all/: Getting all experiences')
-    Operations.experiences_get_all(con).then(({error, experiences}) => {
+    Operations.experiences_get_all(con, function(error, experiences) {
         console.log(error)
         console.log(experiences)
-    }) 
+    })
 });
 
 // TODO: Create an endpoint to get an experience object
