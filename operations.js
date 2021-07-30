@@ -32,8 +32,8 @@ function experiences_get_all(connection = null) {
 
             let experiences = []
             results.forEach(experience => {
-                let experience = new Experience(experience.id, experience.title, experience.description)
-                experiences.push(experience)
+                let newExperience = new Experience(experience.id, experience.title, experience.description)
+                experiences.push(newExperience)
             });
             return { error: nil, experiences: experiences}
         });
