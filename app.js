@@ -17,7 +17,7 @@ var con = mysql.createConnection({
 /***************************
 ENDPOINTS
 ***************************/
-import experiences_get_all from "./operations";
+import * as Operations from "./operations";
 
 app.get('/', (req, res) => {
     res.send('Welcome!');
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 // TODO: Create an endpoint to get all experience objects
 app.get('/experience/all', (req, res) => {
     console.log('DEBUG endpoint /experience/all/: Getting all experiences')
-    let results = experiences_get_all(con)
+    let results = Operations.experiences_get_all(con)
     console.log(results)
 });
 
