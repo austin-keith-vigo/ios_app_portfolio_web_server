@@ -14,7 +14,7 @@ function get_connection() {
 }
 
 // Get all experiences
-export function experiences_get_all(connection = null) {
+export default function experiences_get_all(connection = null) {
 
     // Establich connection to database
     let connection = connection
