@@ -27,8 +27,17 @@ app.get('/', (req, res) => {
 app.get('/experience/all', (req, res) => {
     console.log('DEBUG endpoint /experience/all/: Getting all experiences')
     Operations.experiences_get_all(con, function(error, experiences) {
-        console.log(error)
-        console.log(experiences)
+
+        // Log error
+        if (error == null) {
+            console.log('DEBUG endpoint /experience/all: error = ' + String(error))
+        } 
+
+        res.json({
+            error: error,
+            experiences: experiences
+        })
+
     })
 });
 
