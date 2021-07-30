@@ -14,7 +14,7 @@ function get_connection() {
 }
 
 // Get all experiences
-async function experiences_get_all(connection = null) {
+function experiences_get_all(connection = null) {
 
     // Establich connection to database
     let con = connection
@@ -35,7 +35,6 @@ async function experiences_get_all(connection = null) {
                 let newExperience = new Experience(experience.id, experience.title, experience.description)
                 experiences.push(newExperience)
             });
-            console.log({ error: null, experiences: experiences})
 
             return { error: null, experiences: experiences}
         });
