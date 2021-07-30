@@ -17,9 +17,9 @@ function get_connection() {
 function experiences_get_all(connection = null) {
 
     // Establich connection to database
-    let connection = connection
-    if (connection == null) {
-        connection = get_connection()
+    let con = connection
+    if (con == null) {
+        con = get_connection()
     }
 
     // Make query to database
