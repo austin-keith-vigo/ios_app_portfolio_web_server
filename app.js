@@ -17,9 +17,11 @@ app.get('/', (req, res) => {
     console.log('DEBUG endpoint /experience/all/: Getting all experiences')
     con.connect(function(err) {
         if (err) throw err;
-        con.query("SELECT * FROM experience", function (err, result, fields) {
+        con.query("SELECT * FROM experience", function (err, results, fields) {
             if (err) throw err;
-            console.log(result);
+            results.array.forEach(element => {
+                console.log(element.description)
+            });
         });
     });
 });
