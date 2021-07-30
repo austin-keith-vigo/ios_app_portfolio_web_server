@@ -32,13 +32,13 @@ function experiences_get_all(connection = null) {
 
             let experiences = []
             results.forEach(experience => {
-                experiences.push(new Experience(experience.id, experience.title, experience.description))
+                let experience = new Experience(experience.id, experience.title, experience.description)
+                experiences.push(experience)
             });
             return { error: nil, experiences: experiences}
         });
     } catch (error) {
-        return { error: err, experiences: []}
-        return
+        return { error: err, experiences: [] }
     }
 }
 
