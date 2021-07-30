@@ -41,3 +41,5 @@ export function experiences_get_all(connection = null) {
         return
     }
 }
+
+module.exports = { experiences_get_all }
