@@ -17,6 +17,7 @@ var con = mysql.createConnection({
 /***************************
 ENDPOINTS
 ***************************/
+import experiences_get_all from "./operations"
 
 app.get('/', (req, res) => {
     res.send('Welcome!');
