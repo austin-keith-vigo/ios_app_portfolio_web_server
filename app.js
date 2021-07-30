@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
         if (err) throw err;
         con.query("SELECT * FROM experience", function (err, results, fields) {
             if (err) throw err;
-            results.array.forEach(element => {
-                console.log(element.description)
+            results.forEach(experience => {
+                console.log(experience.description)
             });
         });
     });
