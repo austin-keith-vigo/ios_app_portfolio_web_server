@@ -33,6 +33,7 @@ function experiences_get_all(connection = null) {
             let experiences = []
             results.forEach(experience => {
                 let newExperience = new Experience(experience.id, experience.title, experience.description)
+                console.log(newExperience)
                 experiences.push(newExperience)
             });
             return { error: nil, experiences: experiences}
