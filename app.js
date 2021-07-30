@@ -17,7 +17,7 @@ var con = mysql.createConnection({
 /***************************
 ENDPOINTS
 ***************************/
-import * as Operations from "./operations";
+const Operations = require("./operations")
 
 app.get('/', (req, res) => {
     res.send('Welcome!');
